@@ -24,6 +24,11 @@ module PatternTriggersBackend
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # Added For rails_admin
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Session::CookieStore, {:key=>"_pattern_triggers_backend_session"}
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
